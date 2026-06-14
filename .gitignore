@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual
+.venv/
+venv/
+ENV/
+env/
+
+# Linux and Editors (Vim/Neovim/VS Code)
+.DS_Store
+.directory
+*~
+*.log
+*.swp
+*.swo
+.netrwhist
+undo/
+.vscode/
+
+# Provide local security
+keyring.json
+*.pem
+*.sec
+*.pub
+*.pgp
+*.encrypted
+*.decrypted
