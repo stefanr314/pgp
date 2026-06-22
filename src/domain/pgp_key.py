@@ -25,7 +25,7 @@ class PGPPublicKey:
     public_key: str
     owner_trust: float
     key_legitimacy: float  # todo
-    sigantures: list[str]
+    signatures: list[str]
     signature_trust: float
     key_size: int = 2048
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
