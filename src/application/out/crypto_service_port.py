@@ -12,11 +12,29 @@ class CryptoServicePort(ABC):
         pass
 
     @abstractmethod
-    def import_public_key(self, filepath: str, email: str) -> PGPPublicKey:
+    def import_key(
+        self,
+        filepath: str,
+        my_email: str,
+        name: str,
+        foreign_email: str | None = None,
+        foreign_owner_trust: float | None = None,
+        passphrase: str | None = None,
+    ) -> tuple[PGPPrivateKey, PGPPublicKey] | PGPPublicKey:
         pass
 
-    @abstractmethod
-    def import_key_pair(
-        self, filepath_private_key: str, filepath_public_key: str, my_email: str
-    ) -> tuple[PGPPrivateKey, PGPPublicKey]:
-        pass
+    # @abstractmethod
+    # def import_public_key(
+    #     self,
+    #     filepath: str,
+    #     my_email: str,
+    #     foreign_email: str | None = None,
+    #     foreign_owner_trust: float | None = None,
+    # ) -> PGPPublicKey:
+    #     pass
+    #
+    # @abstractmethod
+    # def import_key_pair(
+    #     self, filepath_private_key: str, filepath_public_key: str, my_email: str
+    # ) -> tuple[PGPPrivateKey, PGPPublicKey]:
+    #     pass
