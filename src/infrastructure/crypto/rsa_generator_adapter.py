@@ -155,14 +155,14 @@ class RSAGeneratorAdapter(CryptoServicePort):
             format=serialization.PublicFormat.SubjectPublicKeyInfo,
         )
         pgp_public: PGPPublicKey = PGPPublicKey(
-            user_id=user_id,
-            key_id=key_id_hex,
-            public_key=pgp_raw.decode("utf-8"),
-            owner_trust=owner_trust,
-            key_legitimacy=1.0,
-            signatures=list(),
-            signature_trust=0.0,
-            key_size=key_size,
+            _user_id=user_id,
+            _key_id=key_id_hex,
+            _public_key=pgp_raw.decode("utf-8"),
+            _owner_trust=owner_trust,
+            _key_legitimacy=1.0,
+            _signatures=list(),
+            _signature_trust=0.0,
+            _key_size=key_size,
         )
 
         return pgp_public
@@ -207,13 +207,13 @@ class RSAGeneratorAdapter(CryptoServicePort):
 
         # 6. instanciate objects
         pgp_private: PGPPrivateKey = PGPPrivateKey(
-            email=my_email,
-            name=name,
-            public_key=public_pem.decode(encoding="utf-8"),
-            user_id=str(my_email + ";" + name),
-            key_id=key_id_hex,
-            enc_private_key=private_pem.decode(encoding="utf-8"),
-            key_size=key_size,
+            _email=my_email,
+            _name=name,
+            _public_key=public_pem.decode(encoding="utf-8"),
+            _user_id=str(my_email + ";" + name),
+            _key_id=key_id_hex,
+            _enc_private_key=private_pem.decode(encoding="utf-8"),
+            _key_size=key_size,
         )
 
         return pgp_private

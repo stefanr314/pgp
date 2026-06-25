@@ -1,6 +1,5 @@
 import pytest
 from unittest.mock import patch, mock_open
-from cryptography.hazmat.primitives.asymmetric import rsa
 
 from src.infrastructure.crypto.rsa_generator_adapter import RSAGeneratorAdapter
 from src.domain.exceptions import (
@@ -77,7 +76,6 @@ def test_import_private_key_requires_passphrase_but_not_provided(mock_file, adap
         )
 
 
-# Za potpun test privatnog ključa koji traži password, možemo mockovati i samu cryptography funkciju
 @patch(
     "src.infrastructure.crypto.rsa_generator_adapter.serialization.load_pem_private_key"
 )

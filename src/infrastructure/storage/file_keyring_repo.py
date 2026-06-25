@@ -27,20 +27,20 @@ class FileKeyringRepo(KeyringRepo):
 
     @override
     def save_all(self, keyring: KeyRing) -> None:
-        self.private_repo.save_data(keyring.get_private_ring())
-        self.public_repo.save_data(keyring.get_public_ring())
+        self.private_repo.save_data(keyring.private_ring)
+        self.public_repo.save_data(keyring.public_ring)
 
     @override
     def save_private(self, keyring: KeyRing) -> None:
-        self.private_repo.save_data(keyring.get_private_ring())
+        self.private_repo.save_data(keyring.private_ring)
 
     @override
     def save_public(self, keyring: KeyRing) -> None:
-        self.public_repo.save_data(keyring.get_public_ring())
+        self.public_repo.save_data(keyring.public_ring)
 
     @override
     def load_all(self) -> KeyRing:
         public_ring = self.public_repo.load_data()
         private_ring = self.private_repo.load_data()
 
-        return KeyRing(private_ring=private_ring, public_ring=public_ring)
+        return KeyRing(_private_ring=private_ring, _public_ring=public_ring)
